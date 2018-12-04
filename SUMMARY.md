@@ -33,3 +33,10 @@ It could be "anywhere" within our module, but it is always a good idea to create
 ### Some guidelines
 
 See [PEP8](https://www.python.org/dev/peps/pep-0008/).
+
+### docstrings
+
+See [PEP257](https://www.python.org/dev/peps/pep-0257/).
+
+- Python documentation tools:
+  - Sphinx
