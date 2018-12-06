@@ -40,3 +40,61 @@ See [PEP257](https://www.python.org/dev/peps/pep-0257/).
 
 - Python documentation tools:
   - Sphinx
+
+### Running packages as executable
+
+Use the `-m` flag on the `python` command. Example: `python -m venv path/to/env`.
+
+Python looks for `__MAIN__`, which should be the program entry point. That leads to a very common pattern:
+
+```python
+def main_function():
+    print("Hello")
+
+if __name__ == '__main__':
+    main_function()
+```
+
+Which is to compared the module's name (assigned by the compiler) and if a module is given the name `__main__`, it means it is being ran as the main package.
+
+- Reading arguments
+
+Arguments can be read using some useful packages, like the standard package library called `argparse`.
+
+```python
+# Let's suppose the name of the package is apdemo
+import argparse
+parser = argparse.ArgumentParser(
+    prog = 'python -m apdemo',
+    description = 'a demo package'
+)
+
+# adding optional arguments
+parser.add_argument('-p','--print', action='store_true', default=False)
+
+parser.add_argument('name', nargs='+')
+args = parser.parse_args()
+```
+
+### Using shell scripts to run our python programs
+
+Bash files are always marked with `#!/bin/sh` on the first line of the file.
+Bash files need to be marked as executable.
+
+Example of a bash file to run our python programs.
+
+```bash
+#!/bin/sh
+# cd to the env folder
+cd /path/to/project/env
+# activate env
+source bin/activate
+# run program with the python command
+python -m projejct entry
+```
+
+Then, all we need to do is to run the bash file.
+
+### Decorators
+
+They only wrap a function inside another function that does something and then returns a function.
