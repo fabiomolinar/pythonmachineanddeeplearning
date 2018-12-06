@@ -98,3 +98,19 @@ Then, all we need to do is to run the bash file.
 ### Decorators
 
 They only wrap a function inside another function that does something and then returns a function.
+
+### Interesting Python subjects
+
+- docutils
+- doctest
+- subprocess
+- concurrent.futures
+- multiprocessing
+- asyncio
+- decorators
+- metaclasses
+- context managers
+- descriptors
+
+### Unit testing
+
