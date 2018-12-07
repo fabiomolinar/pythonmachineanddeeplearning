@@ -111,6 +111,51 @@ They only wrap a function inside another function that does something and then r
 - metaclasses
 - context managers
 - descriptors
+- RxPY (reactive programming)
 
 ### Unit testing
 
+Using the `unittest` package.
+
+```python
+import unittest
+import os
+
+class BasicTest(unittest.TestCase):
+    def test_addition(self):
+        self.assertEqual(2 + 2, 4)
+```
+
+- Using Mock
+
+```python
+import unittest.mock
+
+m = unittest.mock
+m.append('x')
+
+m = Mock(side_effect = [1,2,3])
+m()
+
+m = Mock()
+m.bar(27)
+m.bar(41)
+m.bar.assert_called_with(41)
+m.bar.assert_any_call(27)
+```
+
+- Using commands to run tests
+
+```bash
+# to run through the directory and find files that look like tests
+# to be discovered, files should start with the word "test"
+python -m unittest discover -v
+
+# to tell `unittest` where the folder with tests are without changing 
+# its reference to the package folder we need to use -s and -t
+python -m unittest discover -v -s <path to tests folder> -t <path to package>
+```
+
+- Using Nose
+
+Nose is a third party package to run tests. *It supports running tests on multiple CPUs*.
